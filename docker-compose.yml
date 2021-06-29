@@ -19,13 +19,13 @@ services:
             - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
             - ./mysql/data:/var/lib/mysql
 
-        phpmyadmin:
-            container_name: test_phpmyadmin
-            image: phpmyadmin/phpmyadmin
-            environment:
-                - PMA_ARBITRARY=1
-                - PMA_HOSTS=mysql_host
-                - PMA_USER=root
-                - PMA_PASSWORD=root
-            ports:
-            - 8080:8081
+    phpmyadmin:
+        container_name: test_phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOSTS=mysql_host
+            - PMA_USER=root
+            - PMA_PASSWORD=root
+        ports:
+            - 8081:8081
