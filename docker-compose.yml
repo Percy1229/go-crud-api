@@ -7,14 +7,25 @@ services:
         ports:
             - "80:80"
     
-    # mysql:
-    #     image: mysql
-    #     environment: 
-    #         - MYSQL_ROOT_PASSWORD=golang
-    #     expose: 
-    #         - 3306
+    mysql:
+        image: mysql
+        environment: 
+            - MYSQL_ROOT_PASSWORD=root
+        expose: 
+            - 3306
         
-    #     volumes:
-    #         - ./mysql/DB:/docker-entrypoint-initdb.d
-    #         - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    #         - ./mysql/details:/var/lib/mysql
+        volumes:
+            - ./mysql/DB:/docker-entrypoint-initdb.d
+            - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./mysql/data:/var/lib/mysql
+
+        phpmyadmin:
+            container_name: test_phpmyadmin
+            image: phpmyadmin/phpmyadmin
+            environment:
+                - PMA_ARBITRARY=1
+                - PMA_HOSTS=mysql_host
+                - PMA_USER=root
+                - PMA_PASSWORD=root
+            ports:
+            - 8080:8081
