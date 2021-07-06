@@ -8,24 +8,24 @@ services:
             - "80:80"
     
     mysql:
-        image: mysql
+        image: mysql:latest
         environment: 
-            - MYSQL_ROOT_PASSWORD=root
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABSE: db
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
         expose: 
-            - 3306
-        
+            - 3306    
         volumes:
-            - ./mysql/DB:/docker-entrypoint-initdb.d
-            - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-            - ./mysql/data:/var/lib/mysql
+            - ./mysql/initdb.d:/docker-entrypoint-initdb.d
 
-    phpmyadmin:
-        container_name: test_phpmyadmin
-        image: phpmyadmin/phpmyadmin
-        environment:
-            - PMA_ARBITRARY=1
-            - PMA_HOSTS=mysql_host
-            - PMA_USER=root
-            - PMA_PASSWORD=root
-        ports:
-            - 8081:8081
+    # phpmyadmin:
+    #     container_name: test_phpmyadmin
+    #     image: phpmyadmin/phpmyadmin
+    #     environment:
+    #         - PMA_ARBITRARY=1
+    #         - PMA_HOSTS=mysql
+    #         - PMA_USER=user
+    #         - PMA_PASSWORD=password
+    #     ports:
+    #         - 8081:80

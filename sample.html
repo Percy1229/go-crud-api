@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Settings</title>
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="loader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+    <section class="py-40 bg-gray-100  bg-opacity-50 h-screen">
+
+        <div class="mx-auto container max-w-2xl md:w-3/4 shadow-md">
+            <div class="bg-gray-100 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
+                <div class="max-w-sm mx-auto md:w-full md:mx-0">
+                    <div class="inline-flex items-center space-x-4">
+                        <h1 class="text-gray-600">Username</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white space-y-6">
+                <hr />
+                <form action="/user/name" method="POST">
+                    <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
+                        <h2 class="md:w-4/12 max-w-sm mx-auto">Change name</h2>
+                        <div class="md:w-5/12 w-full md:pl-9 max-w-sm mx-auto space-y-5 md:inline-flex pl-2">
+                            <div class="w-full inline-flex border-b">
+                                <div class="w-1/12 pt-2">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <input type="text" class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
+                                    placeholder="New" name="username" required />
+                            </div>
+                        </div>
+                        <div class="md:w-3/12 text-center md:pl-6">
+                            <button type="submit"
+                                class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center hover:bg-opacity-50 focus:outline-none md:float-right">
+                                <svg fill="none" class="w-4 text-white mr-2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <form action="/user/password" method="POST">
+                    <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
+                        <h2 class="md:w-4/12 max-w-sm mx-auto">Change password</h2>
+
+                        <div class="md:w-5/12 w-full md:pl-9 max-w-sm mx-auto space-y-5 md:inline-flex pl-2">
+                            <div class="w-full inline-flex border-b">
+                                <div class="w-1/12 pt-2">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <input type="password" class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
+                                    placeholder="New" name="password" required />
+                            </div>
+                        </div>
+                        <div class="md:w-3/12 text-center md:pl-6">
+                            <button type="submit"
+                                class="text-white w-full mx-auto max-w-sm text-center bg-indigo-400 py-2 px-4 inline-flex items-center rounded-md hover:bg-opacity-50 focus:outline-none md:float-right">
+                                <svg fill="none" class="w-4 text-white mr-2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <hr />
+                <div class="w-full p-4 text-right text-gray-500">
+                    <button class="inline-flex items-center mr-4 p-3 rounded hover:bg-red-400 hover:text-white">
+                        <span><i class="fas fa-trash pr-1"></i></span>Delete account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    function test() {
+        const loader = document.getElementById('loader');
+        loader.classList.add('loaded');
+    }
+    window.onload = setTimeout(test, 2000)
+</script>
+</html>
